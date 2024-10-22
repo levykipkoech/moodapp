@@ -5,7 +5,7 @@ import React from 'react'
 
 function DashboardPage() {
 
-  const isAuthenticated = false
+  const isAuthenticated = true
 
   let children =(
     <Login/>
