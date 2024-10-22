@@ -14,7 +14,7 @@ export default function Hero() {
         <span className="textGradient"> Moodap </span> helps you track your{' '}
         <span className="textGradient"> daily </span> mood!
       </h1>
-      <p className="text-lg sm:text-xl md:text-2xl text-center w-full mx-auto max-w-[700px]">
+      <p className="text-lg sm:text-xl md:text-2xl text-center w-full mx-auto max-w-[600px]">
         create your mood record and see how you feel on
         <span className="font-semibold"> everyday of every year.</span>
       </p>
