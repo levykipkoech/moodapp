@@ -1,3 +1,4 @@
+import { baseRating, gradients, data } from '@/utils';
 import React from 'react';
 
 const months = {
@@ -26,7 +27,8 @@ const dayList = [
   'Saturday',
 ];
 
-export default function Calender() {
+export default function Calender(props) {
+  const { demo } = props;
   const year = 2024;
   const month = 'October';
   const monthNow = new Date(year, Object.keys(months).indexOf(month), 1);
@@ -42,7 +44,7 @@ export default function Calender() {
   const numRows = Math.floor(daysToDisplay / 7) + (daysToDisplay % 7 ? 1 : 0);
 
   return (
-    <div className="flex flex-col overflow-hidden gap-1">
+    <div className="flex flex-col overflow-hidden gap-1 py-4 sm:py-6 md:py-10">
       {[...Array(numRows).keys()].map((row, rowIndex) => {
         return (
           <div key={rowIndex} className="grid grid-cols-7 gap-1 ">
@@ -60,9 +62,14 @@ export default function Calender() {
               if (!dayDIsplay) {
                 return <div key={dayOfWeekIndex} className="bg-white" />;
               }
-              let color = 33;
+              let color = demo
+                ? gradients.indigo[baseRating[dayIndex]]
+                : dayIndex in data
+                ? gradients.indigo[data[dayIndex]]
+                : 'white';
               return (
                 <div
+                style={{background: color}}
                   key={dayOfWeekIndex}
                   className={
                     'text-xs sm:text-sm border border-solod p-2 flex items-center gap-2 justify-between rounded-lg' +
