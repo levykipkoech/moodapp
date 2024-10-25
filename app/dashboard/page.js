@@ -1,28 +1,14 @@
-import Dashboard from '@/components/Dashboard'
-import Login from '@/components/Login'
-import Main from '@/components/Main'
-import React from 'react'
+import Dashboard from '@/components/Dashboard';
 
-function DashboardPage() {
+import Main from '@/components/Main';
+import React from 'react';
 
-  const isAuthenticated = true
-
-  let children =(
-    <Login/>
-  )
-
-  if (isAuthenticated){
-    children = (
-      <Dashboard/>
-    )
-  }
-   
-  
-  return (
-    <Main>
-      {children}
-    </Main>
-  )
+export const metadata = {
+  title: "Moodap.Dashboard",
 }
 
-export default DashboardPage
+function DashboardPage() {
+  return <Main><Dashboard/></Main>;
+}
+
+export default DashboardPage;

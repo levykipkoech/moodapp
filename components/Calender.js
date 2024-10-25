@@ -1,5 +1,6 @@
-import { baseRating, gradients, data } from '@/utils';
-import React from 'react';
+'use client';
+import { baseRating, gradients } from '@/utils';
+import React, { useState } from 'react';
 
 const months = {
   January: 'Jan',
@@ -28,15 +29,23 @@ const dayList = [
 ];
 
 export default function Calender(props) {
-  const { demo } = props;
-  const year = 2024;
-  const month = 'October';
-  const monthNow = new Date(year, Object.keys(months).indexOf(month), 1);
+  const now = new Date();
+  const currentMonth = now.getMonth();
+
+  const [selectedMonth, setSelectedMonth] = useState(
+    Object.keys(months)[currentMonth]
+  );
+  const [selectedYear, setSelectedYear] = useState(now.getFullYear())
+  console.log('SELECTED MONTH', selectedMonth);
+  const { demo, data, handleSetMood } = props;
+//   const year = 2024;
+//   const month = 'October';
+  const monthNow = new Date(selectedYear, Object.keys(months).indexOf(selectedMonth), 1);
 
   const firstDayMonth = monthNow.getDay();
   const dayInMonth = new Date(
-    year,
-    Object.keys(months).indexOf(month) + 1,
+    selectedYear,
+    Object.keys(months).indexOf(selectedMonth) + 1,
     0
   ).getDate();
 
@@ -69,7 +78,7 @@ export default function Calender(props) {
                 : 'white';
               return (
                 <div
-                style={{background: color}}
+                  style={{ background: color }}
                   key={dayOfWeekIndex}
                   className={
                     'text-xs sm:text-sm border border-solod p-2 flex items-center gap-2 justify-between rounded-lg' +
