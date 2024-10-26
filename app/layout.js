@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
   const footer = (
     <footer className="p-4 sm:p-8 grid place-items-center">
       <p className={'text-indigo-400 ' + fugaz.className}>
-        created with 💜 <span>@levy_314</span>
+        <span>@levy_314</span>
       </p>
     </footer>
   );

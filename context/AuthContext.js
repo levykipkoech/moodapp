@@ -21,8 +21,8 @@ export function AuthProvider({ children }) {
   const [userDataOb, setUserDataOb] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  function signUp(email, passowrd) {
-    return createUserWithEmailAndPassword(auth, email, passowrd);
+  function signUp(email, password) {
+    return createUserWithEmailAndPassword(auth, email, password);
   }
 
   function login(email, password) {
@@ -70,7 +70,7 @@ export function AuthProvider({ children }) {
     login,
     logOut,
     setUserDataOb,
-    loading,
+    loading
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
