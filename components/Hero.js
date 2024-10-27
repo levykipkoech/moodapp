@@ -4,6 +4,8 @@ import Button from './Button';
 import Calender from './Calender';
 import Link from 'next/link';
 
+import CallToAction from './callToAunction';
+
 const fugaz = Fugaz_One({ subsets: ['latin'], weight: ['400'] });
 
 export default function Hero() {
@@ -21,14 +23,7 @@ export default function Hero() {
         create your mood record and see how you feel on
         <span className="font-semibold"> everyday of every year.</span>
       </p>
-      <div className='grid grid-cols-2 gap-4 mx-auto'>
-        <Link href={'/dashboard'}>
-        <Button text="sign up"/>
-        </Link>
-       <Link href={'/dashboard'}>
-      <Button text="login" dark/>
-      </Link>
-      </div>
+      <CallToAction/>
       <Calender demo/>
     </div>
   );
