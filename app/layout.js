@@ -3,6 +3,8 @@ import './globals.css';
 import Link from 'next/link';
 import { AuthProvider } from '@/context/AuthContext';
 import Head from './head';
+import Logout from '@/components/LogOut';
+
 
 const opensans = Open_Sans({ subsets: ['latin'] });
 const fugaz = Fugaz_One({ subsets: ['latin'], weight: ['400'] });
@@ -20,7 +22,7 @@ export default function RootLayout({ children }) {
         </h1>
       </Link>
 
-      <div className="flex items-center justify-between">placeholder</div>
+      <Logout/>
     </header>
   );
 
